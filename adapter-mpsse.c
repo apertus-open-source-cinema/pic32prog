@@ -96,7 +96,8 @@ typedef struct {
 #define OLIMEX_MIPS_USB_OCD_H   0x0036  /* MIPS-USB-OCD-H */
 
 #define FTDI_DEFAULT_VID        0x0403  /* Neofoxx JTAG/SWD debug probe, Bus Blaster v2, Flyswatter, ...*/
-#define FTDI_DEFAULT_PID        0x6010
+#define FTDI_DEFAULT_FT2232_PID 0x6010
+#define FTDI_DEFAULT_FT4232_PID 0x6011
 
 /*
  * USB endpoints.
@@ -152,13 +153,15 @@ typedef struct {
 #define SET_MODE_ICSP_SYNC  2
 
 static const device_t devlist[] = {
-    { OLIMEX_VID,           OLIMEX_ARM_USB_TINY,    "Olimex ARM-USB-Tiny",               6,  0x0f10, 0x0100, 1,  0x0200,  0,   0x0800,  0, NULL, 0x0000, 0x0100, 1, 0x0008, 1},
-    { OLIMEX_VID,           OLIMEX_ARM_USB_TINY_H,  "Olimex ARM-USB-Tiny-H",            30,  0x0f10, 0x0100, 1,  0x0200,  0,   0x0800,  0, NULL, 0x0000, 0x0100, 1, 0x0008, 1},
-    { OLIMEX_VID,           OLIMEX_ARM_USB_OCD_H,   "Olimex ARM-USB-OCD-H",             30,  0x0f10, 0x0100, 1,  0x0200,  0,   0x0800,  0, NULL, 0x0000, 0x0100, 1, 0x0008, 1},
-    { OLIMEX_VID,           OLIMEX_MIPS_USB_OCD_H,  "Olimex MIPS-USB-OCD-H",            30,  0x0f10, 0x0100, 1,  0x0200,  1,   0x0800,  0, NULL, 0x0000, 0x0100, 1, 0x0008, 1},
-    { FTDI_DEFAULT_VID,     FTDI_DEFAULT_PID,       "TinCanTools Flyswatter",            6,  0x0cf0, 0x0010, 1,  0x0020,  1,   0x0c00,  1, "Flyswatter", 0x0000, 0x0100, 1, 0x0008, 1},
-    { FTDI_DEFAULT_VID,     FTDI_DEFAULT_PID,       "Neofoxx JTAG/SWD adapter",         30,  0xff3b, 0x0100, 1,  0x0200,  1,   0x8000,  1, "Neofoxx JTAG/SWD adapter", 0x0000, 0x0020, 1, 0x1000, 0},
-    { FTDI_DEFAULT_VID,     FTDI_DEFAULT_PID,       "Dangerous Prototypes Bus Blaster", 30,  0x0f10, 0x0100, 1,  0x0200,  1,   0x0000,  0, NULL, 0x0000, 0x0100, 1, 0x0008, 1},
+    { OLIMEX_VID,           OLIMEX_ARM_USB_TINY,        "Olimex ARM-USB-Tiny",               6,  0x0f10, 0x0100, 1,  0x0200,  0,   0x0800,  0, NULL, 0x0000, 0x0100, 1, 0x0008, 1},
+    { OLIMEX_VID,           OLIMEX_ARM_USB_TINY_H,      "Olimex ARM-USB-Tiny-H",            30,  0x0f10, 0x0100, 1,  0x0200,  0,   0x0800,  0, NULL, 0x0000, 0x0100, 1, 0x0008, 1},
+    { OLIMEX_VID,           OLIMEX_ARM_USB_OCD_H,       "Olimex ARM-USB-OCD-H",             30,  0x0f10, 0x0100, 1,  0x0200,  0,   0x0800,  0, NULL, 0x0000, 0x0100, 1, 0x0008, 1},
+    { OLIMEX_VID,           OLIMEX_MIPS_USB_OCD_H,      "Olimex MIPS-USB-OCD-H",            30,  0x0f10, 0x0100, 1,  0x0200,  1,   0x0800,  0, NULL, 0x0000, 0x0100, 1, 0x0008, 1},
+    { FTDI_DEFAULT_VID,     FTDI_DEFAULT_FT2232_PID,    "TinCanTools Flyswatter",            6,  0x0cf0, 0x0010, 1,  0x0020,  1,   0x0c00,  1, "Flyswatter", 0x0000, 0x0100, 1, 0x0008, 1},
+    { FTDI_DEFAULT_VID,     FTDI_DEFAULT_FT2232_PID,    "Neofoxx JTAG/SWD adapter",         30,  0xff3b, 0x0100, 1,  0x0200,  1,   0x8000,  1, "Neofoxx JTAG/SWD adapter", 0x0000, 0x0020, 1, 0x1000, 0},
+    { FTDI_DEFAULT_VID,     FTDI_DEFAULT_FT2232_PID,    "Dangerous Prototypes Bus Blaster", 30,  0x0f10, 0x0100, 1,  0x0200,  1,   0x0000,  0, NULL, 0x0000, 0x0100, 1, 0x0008, 1},
+    { FTDI_DEFAULT_VID,     FTDI_DEFAULT_FT4232_PID,    "Generic FT4232H adapter",          30,  0x0f10, 0x0100, 1,  0x0200,  1,   0x0000,  0, NULL, 0x0000, 0x0100, 1, 0x0008, 1},
+
     { 0 }
 };
 
